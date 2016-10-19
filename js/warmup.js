@@ -6,6 +6,7 @@ objects include the opponent name, Seattle's final score, and the opponents
 final score.
 This array is ordered by date.
 */
+console.log("hello world!");
 var seahawks2016 = [
   { oppName: 'Dolphins', seattle: 12, opponent: 10 }, //won
   { oppName: 'Rams', seattle: 3, opponent: 9 },       //lost
@@ -19,6 +20,23 @@ SINGLE game (like one of the objects in the above array) and returns whether
 or not the Seahawks won the game.
 */
 
+function won(oppName) {
+  if (oppName.seattle > oppName.opponent) {
+    return "won";
+  } else {
+    return "lost";
+  }
+  // seahawks2016.forEach(function(oppName) {
+  //   if (oppName.seattle > oppName.opponent) {
+  //     return ("won");
+  //   } else {
+  //     return ("lost");
+  //   }
+  // }, this);
+} 
+
+won('Dolphins');
+
 
 
 /* Use your `won()` function to log out an array of games that the Seahawks won.
@@ -28,6 +46,7 @@ BONUS: use the .map() function to just log out an array of the team names the
 Seahawks beat.
 */
 
+var filtered = seahawks.filter(won);
 
 
 /* Use the `.reduce()` function to determine the average point spread 

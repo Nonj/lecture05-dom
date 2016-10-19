@@ -5,21 +5,31 @@
 function countdown(){
 
 	//Define a variable to keep track of the count (start at 5)
+	var timer = 5;
 
 
 	//Call the setInterval() and pass it an _anonymous_ callback function 
 	//and an interval of 1000 ms
 	//Be sure to assign the result of the `setInterval` function (not the callback) to 
 	//a variable (e.g., `timerId`) 
-
-
-	//In the callback function, do the following:
+	var timerId = window.setInterval(function() {
+			//In the callback function, do the following:
 			//Log out and decrement the count
 
 			//If the count is 0, log out "Blast off!" and then call clearInterval() on the timerId
+			console.log(timer);
+			timer--;
+			if (timer == 0) {
+				console.log("blastoff!");
+				window.clearInterval(timerId);
+			}
+
+	}, 1000);
+
+
 
 }
-countdown(); //call the function
+//countdown(); //call the function
 
 
 
@@ -27,11 +37,18 @@ countdown(); //call the function
 
 /** exercise 2 **/
 // (a) Use JavaScript to dynamically add your name after "They call me..."
+var ele = document.querySelector('#text .lead');
+
+var text = ele.textcontent;
+ele.textContent = "They call me... Non";
+
 
 
 // (b) Log out the contents of all elements in the DOM with the class hidden.
 // Hint: use querySelectorAll() and the forEach() function!
 
+var ele = document.querySelectorAll('section');
+console.log(ele);
 
 
 
@@ -39,6 +56,9 @@ countdown(); //call the function
 /** exercise 3 **/
 // (a) Use JavaScript to move the ball (the <circle>) to the top of the slide by setting its cx attribute to 225 and its cy attribute to 95.
  
+var ball = document.querySelector('circle');
+ball.setAttribute('cx','225');
+ball.setAttribute('cy','95');
 
 // (b) Add code that selects all links on the page and adds a target="_blank" attribute to them. This attribute causes the link to open in a new window!
 // Hint: Use a loop!
@@ -50,6 +70,8 @@ countdown(); //call the function
 /** exercise 4 **/
 // (a) Use JavaScript to move the ball to the bottom of the slide by giving it the down-slide class.
  
+
+ball.classList.toggle('down-slide');
 
 // (b) Implement a function blink() that causes .important elements to change color from red to white every half second. Use the white class.
 
